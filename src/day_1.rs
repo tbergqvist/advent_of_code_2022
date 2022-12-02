@@ -1,6 +1,6 @@
 pub fn a(input: &str) -> i32 {
   input.split("\n\n")
-  .map(|i| i.lines())
+  .map(str::lines)
   .map(|lines| lines
       .map(|l| l.parse::<i32>().unwrap())
       .sum())
@@ -10,13 +10,13 @@ pub fn a(input: &str) -> i32 {
 
 pub fn b(input: &str) -> i32 {
   let mut list: Vec<i32> = input.split("\n\n")
-  .map(|i| i.lines())
+  .map(str::lines)
   .map(|lines| lines
       .map(|l| l.parse::<i32>().unwrap())
       .sum())
   .collect();
 
-  list.sort();
+  list.sort_unstable();
   
   list
     .into_iter()
