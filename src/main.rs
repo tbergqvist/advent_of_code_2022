@@ -4,6 +4,7 @@ mod day_1;
 mod day_2;
 mod day_3;
 mod day_4;
+mod day_5;
 
 fn main() {
   println!("Solving");
@@ -24,5 +25,11 @@ fn main() {
   println!("4a:{}", day_4::a(&day4_input));
   println!("4b:{}", day_4::b(&day4_input));
 
+  let day5_input = fs::read_to_string("./inputs/5.txt").unwrap();
+  println!("5a:{}", day_5::a(&day5_input));
+  println!("5b:{}", day_5::b(&day5_input));
+
+  //5a:BZLVHBWQF
+  //5b:TDGJQTZSL
   println!("Done");
 }
