@@ -71,7 +71,7 @@ pub fn b(input: &str) -> String {
 				values.iter().rev().for_each(|v| {
 					let to_vec = &mut bla[to - 1];
 					to_vec.push(*v);
-				})
+				});
 		});
 
 	bla
