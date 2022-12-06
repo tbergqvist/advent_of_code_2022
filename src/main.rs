@@ -34,7 +34,5 @@ fn main() {
   println!("6a:{}", day_6::a(&day6_input));
   println!("6b:{}", day_6::b(&day6_input));
 
-  //5a:BZLVHBWQF
-  //5b:TDGJQTZSL
   println!("Done");
 }
