@@ -36,9 +36,9 @@ fn read_command<'r, T : Iterator<Item = &'r str>>(lines: &mut T, current_node: &
 		if line.starts_with("$ cd ..") {
 			return;
 		} else if line.starts_with("$ cd") {
-			let name = line.split(' ').skip(2).next().unwrap();
+			let name = line.split(' ').nth(2).unwrap();
 			let entry = current_node.directories.entry(name.to_string());
-			let current_node = entry.or_insert(Node::new());
+			let current_node = entry.or_insert_with(Node::new);
 			read_command(lines, current_node);
 		} else {
 			let file_params: Vec<&str> = line.split(' ').collect();
@@ -65,6 +65,6 @@ pub fn b(input: &str) -> usize {
 	let mut total: Vec<usize> = Vec::new();
 	find_size2(&root, &mut total);
 	let space_left: i32 = 70000000 - total_size as i32 - 30000000;
-	let space_left = space_left.abs() as usize;
+	let space_left = space_left.unsigned_abs() as usize;
 	total.into_iter().filter(|t| *t > space_left).min().unwrap()
 }
