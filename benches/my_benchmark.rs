@@ -47,6 +47,22 @@ pub fn criterion_benchmark(c: &mut Criterion) {
     let input = fs::read_to_string("./inputs/12.txt").unwrap();
     c.bench_function("day12::a", |b| b.iter(|| day_12::a(&input)));
     c.bench_function("day12::b", |b| b.iter(|| day_12::b(&input)));
+    
+    let input = fs::read_to_string("./inputs/13.txt").unwrap();
+    c.bench_function("day13::a", |b| b.iter(|| day_13::a(&input)));
+    c.bench_function("day13::b", |b| b.iter(|| day_13::b(&input)));
+    
+    let input = fs::read_to_string("./inputs/14.txt").unwrap();
+    c.bench_function("day14::a", |b| b.iter(|| day_14::a(&input)));
+    c.bench_function("day14::b", |b| b.iter(|| day_14::b(&input)));
+    
+    let input = fs::read_to_string("./inputs/15.txt").unwrap();
+    c.bench_function("day15::a", |b| b.iter(|| day_15::a(&input)));
+    c.bench_function("day15::b", |b| b.iter(|| day_15::b(&input)));
+    
+    let input = fs::read_to_string("./inputs/16.txt").unwrap();
+    c.bench_function("day16::a", |b| b.iter(|| day_16::a(&input)));
+    c.bench_function("day16::b", |b| b.iter(|| day_16::b(&input)));
 }
 
 criterion_group!(benches, criterion_benchmark);
