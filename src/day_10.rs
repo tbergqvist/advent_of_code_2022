@@ -15,7 +15,7 @@ pub fn a(input: &str) -> i32 {
 	.sum()
 }
 
-pub fn b(input: &str) -> usize {
+pub fn b(input: &str) -> String {
 	let mut board = vec![vec!['.';40];6];
 	
 	for i in 0..240 {
@@ -28,9 +28,7 @@ pub fn b(input: &str) -> usize {
 	};
 	
 	board.into_iter()
-		.for_each(|row| {
-			row.into_iter().for_each(|cell| print!("{}", cell));
-			println!();
-		});
-	0
+		.fold(String::new(), |s, row| {
+			s + "\n" + &row.into_iter().collect::<String>()
+		})
 }
