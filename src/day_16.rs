@@ -98,13 +98,9 @@ fn parse_valves(input: &str) -> Valves {
 		.collect()
 }
 
-fn visit(valves: Valves, valve_name: &String, time_left: i32, current_pressure: i32, total_pressure: i32) -> i32 {
-	let opened_valves = {
-		let mut clone = valves.clone();
-		let mut valve = clone.get_mut(valve_name).unwrap();
-		valve.open = true;
-		clone
-	};
+fn visit(mut valves: Valves, valve_name: &String, time_left: i32, current_pressure: i32, total_pressure: i32) -> i32 {
+	let valve = valves.get_mut(valve_name).unwrap();
+	valve.open = true;
 
 	let current_valve = &valves[valve_name];
 	let time_left = time_left - 1;
@@ -121,7 +117,7 @@ fn visit(valves: Valves, valve_name: &String, time_left: i32, current_pressure: 
 			if new_time_left <= 0 {
 				total_pressure + current_pressure * time_left
 			} else {
-				visit(opened_valves.clone(), &n.name, new_time_left, current_pressure, total_pressure + current_pressure * n.cost)
+				visit(valves.clone(), &n.name, new_time_left, current_pressure, total_pressure + current_pressure * n.cost)
 			}
 		}
 		)
