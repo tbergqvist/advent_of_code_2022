@@ -16,6 +16,7 @@ mod day_13;
 mod day_14;
 mod day_15;
 mod day_16;
+mod day_17;
 
 macro_rules! run_days {
 	( $( $x:expr), + ) => {
@@ -35,5 +36,5 @@ macro_rules! run_days {
 }
 
 fn main() {
-	run_days!(1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16);
+	run_days!(1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17);
 }
